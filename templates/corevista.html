@@ -129,6 +129,38 @@
             transition: transform 0.2s ease;
         }
         .primary-nav a:hover::after { transform: scaleX(1); }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .header-cart {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #eef2f8;
+            color: var(--navy);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 11px 14px;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 800;
+            position: relative;
+        }
+        .cart-badge {
+            display: inline-grid;
+            place-items: center;
+            min-width: 20px;
+            height: 20px;
+            padding: 0 6px;
+            border-radius: 999px;
+            background: var(--orange-strong);
+            color: white;
+            font-size: 10px;
+            line-height: 1;
+        }
         .header-cta { 
             display: inline-flex;
             align-items: center;
@@ -461,15 +493,34 @@
             font-size: clamp(1.3rem, 2vw, 2rem);
             letter-spacing: -0.06em;
         }
+        .product-action {
+            margin: 0;
+        }
         .configure-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
             padding: 11px 16px;
+            border: 0;
             border-radius: 10px;
             background: var(--navy);
             color: white;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .secondary-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 11px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--line);
+            background: white;
+            color: var(--navy);
             font-size: 10px;
             font-weight: 800;
             letter-spacing: 0.12em;
@@ -580,7 +631,14 @@
                     <a href="#contact">Services</a>
                     <a href="#contact">Support</a>
                 </nav>
-                <a href="{{ url_for('contact') }}" class="header-cta">Request a quote</a>
+                <div class="header-actions">
+                    <a href="{{ url_for('cart') }}" class="header-cart" aria-label="View cart">
+                        <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                        <span>Cart</span>
+                        {% if cart_count %}<span class="cart-badge">{{ cart_count }}</span>{% endif %}
+                    </a>
+                    <a href="{{ url_for('contact') }}" class="header-cta">Request a quote</a>
+                </div>
             </div>
         </div>
     </header>
@@ -671,7 +729,12 @@
                                     <small>Starting Price</small>
                                     <strong>${{ product.price }}</strong>
                                 </div>
-                                <a class="configure-btn" href="{{ url_for('contact') }}">Configure</a>
+                                <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                                    <form action="{{ url_for('add_to_cart', product_id=product.id) }}" method="post" class="product-action">
+                                        <button type="submit" class="configure-btn"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Add to cart</button>
+                                    </form>
+                                    <a class="secondary-action" href="{{ url_for('contact') }}">Configure</a>
+                                </div>
                             </div>
                         </div>
                     </article>
