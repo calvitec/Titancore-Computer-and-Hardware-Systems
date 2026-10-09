@@ -20,6 +20,8 @@
         .brand-mark { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid rgba(255,133,111,.52); border-radius: 12px; color: #ffe3a8; background: linear-gradient(145deg, rgba(255,133,111,.25), rgba(178,138,255,.2) 56%, rgba(212,245,116,.16)); box-shadow: 0 0 28px rgba(255,133,111,.14); }
         .brand-name { font: 700 .95rem "Space Grotesk", sans-serif; letter-spacing: .07em; }
         .brand-sub { color: #8590b0; font-size: .59rem; letter-spacing: .12em; }
+        .mini-cart { display: inline-flex; align-items: center; gap: 8px; margin-left: auto; padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(236,221,255,.15); background: rgba(255,255,255,.04); color: #eef4ff; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+        .mini-cart span { display: inline-grid; place-items: center; min-width: 18px; height: 18px; border-radius: 999px; background: #f9d08c; color: #22192d; font-size: .58rem; }
         .panel { display: grid; grid-template-columns: .9fr 1.1fr; overflow: hidden; border: 1px solid transparent; border-radius: 20px; background: linear-gradient(145deg, #211d2d, #15131f) padding-box, linear-gradient(135deg, rgba(255,133,111,.82), rgba(178,138,255,.7), rgba(212,245,116,.68)) border-box; box-shadow: 0 28px 90px rgba(0,0,0,.32), 0 0 65px rgba(255,133,111,.1); }
         .info { padding: 38px; background: radial-gradient(ellipse at 4% 5%, rgba(255,133,111,.16), transparent 42%), radial-gradient(ellipse at 90% 91%, rgba(178,138,255,.13), transparent 38%), linear-gradient(145deg, #2a2232, #171522); }
         .eyebrow { color: #f7c27d; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
@@ -80,10 +82,13 @@
 </head>
 <body>
     <main class="page">
-        <a class="brand" href="{{ url_for('index') }}" aria-label="TitanCore home">
-            <span class="brand-mark"><i class="fa-solid fa-cube" aria-hidden="true"></i></span>
-            <span><span class="brand-name">TITANCORE</span><br><span class="brand-sub">COMPUTER AND HARDWARE SYSTEMS</span></span>
-        </a>
+        <div style="display:flex; align-items:center; gap:12px;">
+            <a class="brand" href="{{ url_for('index') }}" aria-label="TitanCore home">
+                <span class="brand-mark"><i class="fa-solid fa-cube" aria-hidden="true"></i></span>
+                <span><span class="brand-name">TITANCORE</span><br><span class="brand-sub">COMPUTER AND HARDWARE SYSTEMS</span></span>
+            </a>
+            <a class="mini-cart" href="{{ url_for('cart') }}"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Cart {% if cart_count %}<span>{{ cart_count }}</span>{% endif %}</a>
+        </div>
         <div class="panel">
             <section class="info">
                 <span class="eyebrow">Let’s connect</span>
