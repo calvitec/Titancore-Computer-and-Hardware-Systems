@@ -1,7 +1,45 @@
-﻿from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect, url_for
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "corevista-software-secret-2026"
+
+
+def get_cart():
+    return session.setdefault("cart", {})
+
+
+def get_cart_summary():
+    cart = get_cart()
+    items = []
+    subtotal = 0.0
+
+    for product_id, quantity in cart.items():
+        product = next((item for item in GPU_PRODUCTS if item["id"] == product_id), None)
+        if not product:
+            continue
+
+        unit_price = float(str(product["price"]).replace("$", "").replace(",", ""))
+        qty = int(quantity)
+        line_total = unit_price * qty
+        subtotal += line_total
+        items.append(
+            {
+                "id": product["id"],
+                "name": product["name"],
+                "quantity": qty,
+                "unit_price": unit_price,
+                "line_total": line_total,
+            }
+        )
+
+    return items, subtotal
+
+
+@app.context_processor
+def inject_cart_data():
+    cart = get_cart()
+    cart_count = sum(int(quantity) for quantity in cart.values())
+    return {"cart_count": cart_count}
 
 COMPANY_INFO = {
     "legal_name": "TitanCore Computer and Hardware Systems",
@@ -182,6 +220,7 @@ IDEAL_USE_CASES = [
 
 GPU_PRODUCTS = [
     {
+        "id": "112b-wr",
         "name": "SuperServer 112B-WR",
         "supports": "Intel Xeon 6",
         "cpu": "Intel Xeon 6 SP",
@@ -192,6 +231,7 @@ GPU_PRODUCTS = [
         "price": "15,733.00",
     },
     {
+        "id": "512b-wr",
         "name": "SuperServer 512B-WR",
         "supports": "Intel Xeon 6",
         "cpu": "Intel Xeon 6 SP",
@@ -202,6 +242,7 @@ GPU_PRODUCTS = [
         "price": "15,321.00",
     },
     {
+        "id": "522b-wr",
         "name": "SuperServer 522B-WR",
         "supports": "Intel Xeon 6",
         "cpu": "Intel Xeon 6 SP",
@@ -212,6 +253,7 @@ GPU_PRODUCTS = [
         "price": "15,726.00",
     },
     {
+        "id": "112c-tn",
         "name": "SuperServer 112C-TN",
         "supports": "Intel Xeon 6",
         "cpu": "Intel Xeon 6 SP",
@@ -222,6 +264,7 @@ GPU_PRODUCTS = [
         "price": "43,308.00",
     },
     {
+        "id": "122c-tn",
         "name": "SuperServer 122C-TN",
         "supports": "Intel Xeon 6",
         "cpu": "Intel Xeon 6 SP",
@@ -232,6 +275,7 @@ GPU_PRODUCTS = [
         "price": "28,398.00",
     },
     {
+        "id": "122h-tn",
         "name": "SuperServer 122H-TN",
         "supports": "Intel Xeon 6",
         "cpu": "Intel Xeon 6 SP",
@@ -242,6 +286,7 @@ GPU_PRODUCTS = [
         "price": "27,215.00",
     },
     {
+        "id": "421ge-tnrt",
         "name": "SuperServer 421GE-TNRT",
         "supports": "Intel 5th/4th Gen Xeon Scalable",
         "cpu": "Intel 5th/4th Gen Xeon Scalable",
@@ -252,6 +297,7 @@ GPU_PRODUCTS = [
         "price": "43,294.00",
     },
     {
+        "id": "a22ga-nbrt",
         "name": "GPU SuperServer A22GA-NBRT",
         "supports": "Intel Xeon 6",
         "cpu": "Intel Xeon 6 AP",
@@ -262,6 +308,66 @@ GPU_PRODUCTS = [
         "price": "531,325.00",
     },
 ]
+
+
+@app.route("/add-to-cart/<product_id>", methods=["POST"])
+def add_to_cart(product_id):
+    cart = get_cart()
+    cart[str(product_id)] = int(cart.get(str(product_id), 0)) + 1
+    session["cart"] = cart
+    return redirect(request.referrer or url_for("index"))
+
+
+@app.route("/update-cart/<product_id>", methods=["POST"])
+def update_cart(product_id):
+    action = request.form.get("action", "increase")
+    cart = get_cart()
+    current_qty = int(cart.get(str(product_id), 0))
+
+    if action == "decrease":
+        cart[str(product_id)] = max(current_qty - 1, 0)
+    elif action == "remove":
+        cart[str(product_id)] = 0
+    else:
+        cart[str(product_id)] = current_qty + 1
+
+    if cart.get(str(product_id), 0) <= 0:
+        cart.pop(str(product_id), None)
+
+    session["cart"] = cart
+    return redirect(url_for("cart"))
+
+
+@app.route("/cart")
+def cart():
+    items, subtotal = get_cart_summary()
+    shipping = 0.0 if subtotal == 0 else 49.00
+    total = subtotal + shipping
+    return render_template(
+        "cart.html",
+        company=COMPANY_INFO,
+        cart_items=items,
+        subtotal=subtotal,
+        shipping=shipping,
+        total=total,
+    )
+
+
+@app.route("/checkout", methods=["POST"])
+def checkout():
+    if not get_cart():
+        return redirect(url_for("cart"))
+
+    session["cart"] = {}
+    return render_template(
+        "cart.html",
+        company=COMPANY_INFO,
+        cart_items=[],
+        subtotal=0.0,
+        shipping=0.0,
+        total=0.0,
+        order_message="Demo checkout complete. This is a mock cart experience with no database or payment processing.",
+    )
 
 
 @app.route("/")
