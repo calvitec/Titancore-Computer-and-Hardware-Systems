@@ -353,20 +353,74 @@ def cart():
     )
 
 
-@app.route("/checkout", methods=["POST"])
+@app.route("/checkout", methods=["GET", "POST"])
 def checkout():
-    if not get_cart():
-        return redirect(url_for("cart"))
+    items, subtotal = get_cart_summary()
+    shipping = 0.0 if subtotal == 0 else 49.00
+    total = subtotal + shipping
 
-    session["cart"] = {}
+    if request.method == "POST":
+        if not items:
+            return redirect(url_for("cart"))
+
+        required_fields = [
+            "first_name",
+            "last_name",
+            "email",
+            "phone",
+            "address",
+            "city",
+            "state",
+            "zip",
+            "card_name",
+            "card_number",
+            "expiry",
+            "cvv",
+        ]
+
+        form_data = request.form.to_dict()
+        missing = [field for field in required_fields if not str(form_data.get(field, "")).strip()]
+
+        if missing:
+            return render_template(
+                "checkout.html",
+                company=COMPANY_INFO,
+                cart_items=items,
+                subtotal=subtotal,
+                shipping=shipping,
+                total=total,
+                form_data=form_data,
+                error="Please complete all required billing and payment details.",
+            )
+
+        first_name = str(form_data.get("first_name", "")).strip()
+        last_name = str(form_data.get("last_name", "")).strip()
+        session["cart"] = {}
+
+        return render_template(
+            "checkout.html",
+            company=COMPANY_INFO,
+            cart_items=[],
+            subtotal=0.0,
+            shipping=0.0,
+            total=0.0,
+            success=True,
+            customer_name=f"{first_name} {last_name}".strip(),
+            message=(
+                "Your payment details were received and are being processed securely. "
+                "TitanCore is preparing your order for fulfillment."
+            ),
+        )
+
     return render_template(
-        "cart.html",
+        "checkout.html",
         company=COMPANY_INFO,
-        cart_items=[],
-        subtotal=0.0,
-        shipping=0.0,
-        total=0.0,
-        order_message="Demo checkout complete. This is a mock cart experience with no database or payment processing.",
+        cart_items=items,
+        subtotal=subtotal,
+        shipping=shipping,
+        total=total,
+        form_data={},
+        error=None,
     )
 
 
