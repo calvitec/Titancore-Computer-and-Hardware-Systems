@@ -7,183 +7,229 @@
 <title>Viscount Isinga Auditors | Audit, Tax, Payroll & Financial Advisory</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 :root{
-  --bg:#f3f1ed; --panel:#fff; --line:#e8e0d7; --ink:#1d222a; --muted:#58626f;
-  --orange:#d77a52; --orange-strong:#d35d2e; --navy:#1d2b3d; --teal:#4c7c71;
-  --shadow:rgba(18,28,38,.08);
+  --bg:#0c0f14;
+  --bg-2:#12161d;
+  --panel:#161b23;
+  --line:rgba(255,255,255,.10);
+  --ink:#f4f1ea;
+  --muted:#9aa3ad;
+  --accent:#c8a96a;          /* gold */
+  --accent-2:#e8ddc6;
+  --dark:#0c0f14;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+body{
+  margin:0;font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);
+  line-height:1.6;font-size:18px;-webkit-font-smoothing:antialiased;
+}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-.container{width:min(1180px,calc(100% - 32px));margin:0 auto}
+.container{width:min(1400px,calc(100% - 80px));margin:0 auto}
 
-/* utility + header */
-.utility-bar{background:#0f1722;color:rgba(236,242,248,.9);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
-.utility-inner{display:flex;align-items:center;justify-content:space-between;min-height:42px;gap:20px}
-.utility-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.utility-links a{color:#edf5ff}
-.utility-links .top-call{color:#f0dcae;letter-spacing:.1em}
-.main-header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
-.nav-row{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:88px}
-.brand{display:inline-flex;align-items:center;gap:12px}
-.brand-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#21354d 0%,#d67853 100%);color:#fff;box-shadow:0 12px 20px rgba(18,24,35,.16)}
-.brand-copy{line-height:1.1;font-weight:800;letter-spacing:.08em}
-.brand-copy strong{display:block}
-.brand-sub{font-size:10px;color:#6f7881;letter-spacing:.18em}
-.primary-nav{display:flex;align-items:center;gap:26px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#384351;font-weight:700}
-.primary-nav a{position:relative;padding:10px 0}
-.primary-nav a::after{content:"";display:block;position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
-.primary-nav a:hover::after{transform:scaleX(1)}
-.header-actions{display:flex;align-items:center;gap:12px}
-.header-cart{display:inline-flex;align-items:center;gap:10px;background:#eef2f8;color:var(--navy);border:1px solid var(--line);border-radius:10px;padding:11px 14px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800}
-.header-cta{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;border-radius:10px;padding:12px 18px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+/* top bar */
+.topbar{background:#07090c;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:52px;flex-wrap:wrap}
+.topbar a{color:var(--accent-2)}
+.topbar .tag{color:var(--accent)}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:40;background:rgba(12,15,20,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:96px}
+.logo{display:flex;align-items:center;gap:14px}
+.logo-mark{width:46px;height:46px;border:1px solid var(--accent);display:grid;place-items:center;color:var(--accent);font-size:18px;border-radius:2px}
+.logo-text{line-height:1.05}
+.logo-text strong{display:block;font-family:"Playfair Display",serif;font-size:22px;letter-spacing:.06em;color:#fff;font-weight:500}
+.logo-text span{display:block;font-size:10px;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-top:4px}
+.menu{display:flex;align-items:center;gap:34px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.menu a:hover{color:var(--accent-2)}
+.nav-cta{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--accent);color:var(--accent);padding:14px 22px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;transition:background .2s,color .2s}
+.nav-cta:hover{background:var(--accent);color:#0c0f14}
 
 /* hero */
-.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#f8f5f2 0%,#f3efe9 100%);border-bottom:1px solid var(--line)}
-.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(18,28,38,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(18,28,38,.02) 1px,transparent 1px);background-size:46px 46px;mask-image:linear-gradient(180deg,rgba(0,0,0,.7),rgba(0,0,0,.1))}
-.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:28px;padding:52px 0 36px;align-items:center}
-.crumbs{color:#677380;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
-h1{margin:18px 0 14px;font-size:clamp(2.5rem,5vw,4rem);line-height:.96;letter-spacing:-.06em;color:var(--ink)}
-.lead{max-width:680px;margin:0;color:var(--muted);font-size:1.06rem}
-.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:10px;padding:14px 20px;font-size:11px;letter-spacing:.12em;font-weight:800;text-transform:uppercase;transition:transform .2s ease,box-shadow .2s ease}
-.btn:hover{transform:translateY(-2px)}
-.btn-primary{background:linear-gradient(135deg,#1d3047 0%,#d4744d 100%);color:#fff;box-shadow:0 14px 28px rgba(26,35,45,.14)}
-.btn-secondary{background:#fff;border:1px solid var(--line);color:var(--navy)}
-.feature-stack{display:flex;flex-wrap:wrap;gap:14px 16px;margin-top:28px;color:#485765;font-size:13px;font-weight:600}
-.feature-stack span{display:inline-flex;align-items:center;gap:7px}
-.feature-stack i{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;color:#fff;background:var(--teal);font-size:10px}
-.feature-card{background:linear-gradient(145deg,#141d29 0%,#1e2734 40%,#0d141b 100%);border:1px solid rgba(255,255,255,.08);border-radius:22px;overflow:hidden;box-shadow:0 28px 40px rgba(16,23,32,.12)}
-.card-topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.08)}
-.window-dots{display:flex;gap:8px}
-.window-dots span{display:block;width:10px;height:10px;border-radius:50%}
-.window-dots span:nth-child(1){background:#f48282}.window-dots span:nth-child(2){background:#efd06d}.window-dots span:nth-child(3){background:#7ad8aa}
-.card-tag{color:rgba(230,238,245,.8);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
-.card-body{padding:24px 22px 26px;color:#e8eff7;font-size:13px;line-height:1.9;font-family:"SFMono-Regular",Consolas,monospace}
-.card-body .key{color:#f7c98b}.card-body .value{color:#9bd6ff}
+.hero{position:relative;padding:110px 0 90px;background:
+  radial-gradient(900px 480px at 80% 10%, rgba(200,169,106,.14), transparent 60%),
+  linear-gradient(180deg,#0c0f14 0%,#0e1218 100%);
+  border-bottom:1px solid var(--line);overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background-image:
+  linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:80px 80px;mask-image:radial-gradient(60% 60% at 50% 40%,#000,transparent 80%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:1080px}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:26px}
+.hero-tag::before{content:"";width:32px;height:1px;background:var(--accent)}
+.hero h1{
+  font-family:"Playfair Display",serif;font-weight:500;margin:0 0 30px;
+  font-size:clamp(3rem,6.4vw,6rem);line-height:1.02;letter-spacing:-.02em;color:#fff;
+}
+.hero h1 em{font-style:italic;color:var(--accent-2)}
+.hero p{font-size:1.32rem;line-height:1.65;color:var(--muted);max-width:820px;margin:0 0 40px}
+.hero-actions{display:flex;gap:18px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 30px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;transition:.2s}
+.btn-gold{background:var(--accent);color:#0c0f14;border:1px solid var(--accent)}
+.btn-gold:hover{background:var(--accent-2)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* logo strip / accreditations */
+.accred{border-bottom:1px solid var(--line);background:#0a0d12}
+.accred-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:26px 0;color:var(--muted);font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
+.accred-inner span{white-space:nowrap}
+.accred-inner span b{color:var(--accent-2);font-weight:800;letter-spacing:.14em}
 
 /* stats */
-.stats{background:#fff;border-bottom:1px solid var(--line)}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:26px 0}
-.stat strong{display:block;font-size:2rem;letter-spacing:-.05em;line-height:1}
-.stat span{display:block;margin-top:6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.stats{background:#0c0f14;border-bottom:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{padding:48px 34px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:none;padding-left:0}
+.stat strong{display:block;font-family:"Playfair Display",serif;font-size:clamp(3rem,5vw,4.4rem);line-height:1;color:#fff;font-weight:500}
+.stat span{display:block;margin-top:14px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700}
 
-/* shared sections */
-.section{padding:44px 0}
-.section-kicker{margin:0 0 10px;color:var(--orange);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.section-head{margin-bottom:20px}
-.section-head h2{margin:0;font-size:clamp(2rem,3vw,2.7rem);line-height:1.08;letter-spacing:-.06em}
-.section-head p{margin:10px 0 0;color:var(--muted);max-width:760px}
+/* sections */
+.section{padding:110px 0;border-bottom:1px solid var(--line)}
+.section.alt{background:var(--bg-2)}
+.kicker{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 22px}
+.kicker::before{content:"";width:32px;height:1px;background:var(--accent)}
+.section h2{font-family:"Playfair Display",serif;font-weight:500;margin:0 0 26px;font-size:clamp(2.4rem,4.2vw,4rem);line-height:1.08;letter-spacing:-.02em;color:#fff}
+.section h2 em{font-style:italic;color:var(--accent-2)}
+.section p{color:var(--muted);font-size:1.15rem;line-height:1.7;max-width:860px;margin:0 0 18px}
+.link-arrow{display:inline-flex;align-items:center;gap:10px;color:var(--accent);font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-top:12px}
 
-/* about (vision/mission/promise) */
-.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.tri-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px 22px;box-shadow:0 8px 18px rgba(16,20,28,.04)}
-.tri-card h3{margin:0 0 10px;font-size:1.2rem;letter-spacing:-.04em}
-.tri-card p{margin:0;color:var(--muted);font-size:14px}
+/* about split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-lead h2{margin-bottom:24px}
 
-/* network */
-.network{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.network-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center}
-.network-copy h2{margin:0 0 10px;font-size:clamp(1.9rem,3vw,2.6rem);letter-spacing:-.06em}
-.network-copy p{margin:0;color:var(--muted)}
-.network-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.ns{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
-.ns strong{display:block;font-size:1.6rem;letter-spacing:-.05em;line-height:1}
-.ns span{display:block;margin-top:6px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+/* vision/mission/promise */
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:60px}
+.tri-card{padding:44px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:#10141a}
+.tri-card h3{font-family:"Playfair Display",serif;font-weight:500;margin:0 0 16px;font-size:1.6rem;color:#fff}
+.tri-card p{font-size:1.02rem;margin:0;color:var(--muted)}
+
+/* network block */
+.network-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center}
+.network-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.ns{background:#0f1319;padding:34px 28px}
+.ns strong{display:block;font-family:"Playfair Display",serif;font-size:2.8rem;line-height:1;color:var(--accent);font-weight:500}
+.ns span{display:block;margin-top:12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700}
 
 /* values */
-.values-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.value{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
-.value small{display:block;color:var(--orange);font-weight:800;font-size:10px;letter-spacing:.14em;margin-bottom:8px}
-.value h4{margin:0 0 6px;font-size:1rem;letter-spacing:-.03em}
-.value p{margin:0;color:var(--muted);font-size:13px}
+.values{border-top:1px solid var(--line);margin-top:60px}
+.value{display:grid;grid-template-columns:90px 260px 1fr;gap:24px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line)}
+.value .num{font-family:"Playfair Display",serif;color:var(--accent);font-size:1.3rem}
+.value h4{margin:0;font-family:"Playfair Display",serif;font-weight:500;font-size:1.6rem;color:#fff}
+.value p{margin:0;font-size:1.05rem;color:var(--muted)}
 
 /* services */
-.services{background:var(--panel-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.service{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 8px 18px var(--shadow);transition:transform .2s ease}
-.service:hover{transform:translateY(-3px)}
-.service small{display:block;color:var(--orange);font-weight:800;font-size:10px;letter-spacing:.14em;margin-bottom:8px}
-.service h3{margin:0 0 8px;font-size:1.15rem;letter-spacing:-.04em}
-.service p{margin:0 0 14px;color:var(--muted);font-size:14px}
-.service a{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.services-head{display:flex;justify-content:space-between;align-items:end;gap:40px;flex-wrap:wrap;margin-bottom:60px}
+.services-head h2{margin:0;max-width:720px}
+.services-head p{margin:0;max-width:420px;font-size:1.05rem}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.service{background:#10141a;padding:44px 36px;display:flex;flex-direction:column;min-height:300px;transition:background .2s}
+.service:hover{background:#141a22}
+.service .num{font-family:"Playfair Display",serif;color:var(--accent);font-size:1.2rem;margin-bottom:20px}
+.service h3{font-family:"Playfair Display",serif;font-weight:500;font-size:1.7rem;margin:0 0 14px;color:#fff;line-height:1.2}
+.service p{margin:0 0 24px;color:var(--muted);font-size:1.02rem;flex:1}
+.service a{display:inline-flex;align-items:center;gap:10px;color:var(--accent);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
 
-/* download / trusted */
-.download{background:var(--navy);color:#e8eff7}
-.download-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:34px 0}
-.download-inner h2{margin:0;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.05em;color:#fff}
-.download-inner p{margin:6px 0 0;color:rgba(232,239,247,.75);max-width:640px}
-.trusted{padding:34px 0;text-align:center}
-.trusted p{margin:0 0 6px;color:var(--muted);font-weight:600}
+/* download band */
+.band{background:#07090c;border-bottom:1px solid var(--line)}
+.band-inner{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;padding:64px 0}
+.band-inner h2{font-family:"Playfair Display",serif;font-weight:500;font-size:clamp(1.8rem,2.8vw,2.6rem);margin:0 0 10px;color:#fff}
+.band-inner p{margin:0;color:var(--muted);max-width:620px}
+
+/* trusted */
+.trusted{padding:90px 0;text-align:center;border-bottom:1px solid var(--line)}
+.trusted h2{margin-bottom:16px}
+.trusted .accred-inner{justify-content:center;padding:0;border:none;margin-top:20px}
 
 /* contact */
-.contact-band{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.contact-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;padding:34px 0;align-items:start}
-.contact-inner h2{margin:0 0 10px;font-size:clamp(1.8rem,3vw,2.4rem);letter-spacing:-.06em}
-.contact-inner p{margin:0;color:var(--muted)}
-.contact-list{display:grid;gap:10px;margin-top:16px;font-size:14px;color:var(--muted)}
-.contact-list div{display:flex;align-items:flex-start;gap:10px}
-.contact-list i{color:var(--teal);margin-top:3px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-list{list-style:none;padding:0;margin:36px 0 0;display:grid;gap:24px}
+.contact-list li{display:flex;gap:16px;color:var(--muted);font-size:1.1rem}
+.contact-list i{color:var(--accent);margin-top:5px}
+.contact-form{display:grid;gap:18px}
+.contact-form label{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}
+.contact-form input,.contact-form textarea{width:100%;background:#0f1319;border:1px solid var(--line);color:var(--ink);padding:16px 18px;font-size:1rem;font-family:inherit}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--accent)}
+.contact-form button{justify-self:start}
+
+/* final cta */
+.final-cta{padding:120px 0;text-align:center;background:
+  radial-gradient(700px 380px at 50% 0%,rgba(200,169,106,.14),transparent 70%),#0a0d12}
+.final-cta h2{font-family:"Playfair Display",serif;font-weight:500;font-size:clamp(3rem,7vw,7rem);line-height:1;margin:0 0 20px;color:#fff}
+.final-cta h2 em{color:var(--accent);font-style:italic}
 
 /* footer */
-footer{background:#101922;color:rgba(230,236,243,.8);padding:58px 0 20px}
-.footer-grid{display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:30px;padding-bottom:20px}
-.brand-foot{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px}
-.brand-foot .brand-mark{width:38px;height:38px}
-.brand-foot .brand-copy{color:#fff}
-.footer-block h4{margin:0 0 12px;color:#fff;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
-.footer-address,.footer-links{display:grid;gap:8px;color:rgba(230,236,243,.8);font-size:14px}
-.footer-links a{color:rgba(230,236,243,.8)}
-.legal{border-top:1px solid rgba(255,255,255,.1);padding-top:16px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:rgba(230,236,243,.67);font-size:12px}
+footer{background:#07090c;border-top:1px solid var(--line);padding:80px 0 26px;color:var(--muted)}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:50px;padding-bottom:50px}
+.footer-brand .logo-text strong{font-size:20px}
+.footer-brand p{margin:18px 0 0;font-size:1rem;line-height:1.7;max-width:340px}
+.footer-col h4{margin:0 0 20px;color:#fff;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:800}
+.footer-col a,.footer-col span{display:block;margin-bottom:12px;font-size:1.02rem;color:var(--muted)}
+.footer-col a:hover{color:var(--accent-2)}
+.legal{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;letter-spacing:.06em;color:#6b7480}
 
 /* responsive */
-@media(max-width:980px){
-  .hero-inner,.network-grid,.tri,.services-grid,.footer-grid,.contact-inner,.stats-grid{grid-template-columns:1fr}
-  .values-grid{grid-template-columns:1fr 1fr}
-  .primary-nav{display:none}
+@media(max-width:1100px){
+  .container{width:calc(100% - 48px)}
+  .split,.network-wrap,.contact-grid{grid-template-columns:1fr;gap:52px}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat{padding:34px 24px}
+  .stat:nth-child(3){border-left:none;padding-left:0}
+  .tri{grid-template-columns:1fr}
+  .service-grid{grid-template-columns:1fr 1fr}
+  .menu{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
 }
-@media(max-width:560px){
-  .utility-inner{flex-direction:column;justify-content:center;padding:10px 0}
-  .nav-row{min-height:72px}
-  .values-grid{grid-template-columns:1fr}
+@media(max-width:680px){
+  body{font-size:17px}
+  .container{width:calc(100% - 32px)}
+  .hero{padding:70px 0 60px}
+  .section{padding:70px 0}
+  .stats-grid,.service-grid,.footer-grid{grid-template-columns:1fr}
+  .stat{border-left:none;padding-left:0}
+  .value{grid-template-columns:50px 1fr;gap:12px}
+  .value p{grid-column:2}
+  .nav{min-height:80px}
 }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="utility-bar">
-    <div class="container utility-inner">
-      <div class="utility-links"><a href="#">Viscount Isinga Auditors — Nairobi</a></div>
-      <div class="utility-links">
-        <a href="#">Log In</a>
-        <a class="top-call" href="tel:+254703899606">Call +254 703 899 606</a>
-      </div>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="tag">Audit · Tax · Advisory — Nairobi · SFAI Global Member</div>
+    <div>
+      <a href="tel:+254703899606">+254 703 899 606</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:info@viscountisinga.com">info@viscountisinga.com</a>
     </div>
   </div>
-  <div class="main-header">
-    <div class="container nav-row">
-      <a href="#" class="brand" aria-label="Viscount Isinga Auditors home">
-        <span class="brand-mark"><i class="fa-solid fa-scale-balanced"></i></span>
-        <span class="brand-copy"><strong>VISCOUNT ISINGA</strong><span class="brand-sub">AUDIT · TAX · ADVISORY</span></span>
-      </a>
-      <nav class="primary-nav" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#network">Network</a>
-        <a href="#values">Values</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="header-actions">
-        <a href="#contact" class="header-cart"><i class="fa-solid fa-user"></i><span>Portal</span></a>
-        <a href="#contact" class="header-cta">Request a quote</a>
-      </div>
-    </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo" href="#">
+      <span class="logo-mark"><i class="fa-solid fa-scale-balanced"></i></span>
+      <span class="logo-text">
+        <strong>Viscount Isinga</strong>
+        <span>Auditors · Westlands, Nairobi</span>
+      </span>
+    </a>
+    <nav class="menu">
+      <a href="#about">About</a>
+      <a href="#network">Network</a>
+      <a href="#values">Values</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Request a quote <i class="fa-solid fa-arrow-right"></i></a>
   </div>
 </header>
 
@@ -192,57 +238,52 @@ footer{background:#101922;color:rgba(230,236,243,.8);padding:58px 0 20px}
   <!-- HERO -->
   <section class="hero">
     <div class="container hero-inner">
-      <div>
-        <div class="crumbs">Audit · Tax · Advisory — Nairobi · SFAI Global Member</div>
-        <h1>Your trusted partner in local and international business.</h1>
-        <p class="lead">Audit, tax, advisory, CFO and business support for organisations across Kenya and global markets. We combine deep local insight with international expertise to help businesses strengthen performance, improve decision-making and navigate complexity with confidence.</p>
-        <div class="cta-row">
-          <a href="#contact" class="btn btn-primary">Get in touch</a>
-          <a href="tel:+254703899606" class="btn btn-secondary">Call now</a>
-        </div>
-        <div class="feature-stack">
-          <span><i class="fa-solid fa-check"></i> SFAI Global</span>
-          <span><i class="fa-solid fa-check"></i> ICPAK</span>
-          <span><i class="fa-solid fa-check"></i> ACCA</span>
-          <span><i class="fa-solid fa-check"></i> CPA Australia</span>
-          <span><i class="fa-solid fa-check"></i> Forum of Firms</span>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="card-topbar">
-          <div class="window-dots"><span></span><span></span><span></span></div>
-          <span class="card-tag">The measure of the firm</span>
-        </div>
-        <div class="card-body">
-          <div><span class="key">firm</span> = <span class="value">"Viscount Isinga Auditors"</span></div>
-          <div><span class="key">office</span> = <span class="value">"Westlands, Nairobi"</span></div>
-          <div><span class="key">countries</span> = <span class="value">"115+ via SFAI network"</span></div>
-          <div><span class="key">professionals</span> = <span class="value">"14,000+ across network"</span></div>
-          <div><span class="key">experience</span> = <span class="value">"15+ years partner-led"</span></div>
-          <div><span class="key">network</span> = <span class="value">"SFAI Global Member Firm"</span></div>
-        </div>
+      <div class="hero-tag">Your trusted partner in local and international business</div>
+      <h1>Audit · Tax · Advisory.<br><em>Clarity when it matters.</em></h1>
+      <p>Audit, tax, advisory, CFO and business support for organisations across Kenya and global markets — combining deep local insight with international expertise.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-gold">Get in touch <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#services" class="btn btn-ghost">Our services</a>
       </div>
     </div>
   </section>
+
+  <!-- ACCREDITATIONS STRIP -->
+  <div class="accred">
+    <div class="container accred-inner">
+      <span><b>SFAI Global</b></span>
+      <span><b>ICPAK</b></span>
+      <span><b>ACCA</b></span>
+      <span><b>CPA Australia</b></span>
+      <span><b>Forum of Firms</b></span>
+    </div>
+  </div>
 
   <!-- STATS -->
   <section class="stats">
     <div class="container stats-grid">
       <div class="stat"><strong>1</strong><span>Office — Nairobi</span></div>
       <div class="stat"><strong>115+</strong><span>Countries via SFAI</span></div>
-      <div class="stat"><strong>14,000+</strong><span>Professionals across network</span></div>
-      <div class="stat"><strong>15+</strong><span>Years partner-led experience</span></div>
+      <div class="stat"><strong>14,000+</strong><span>Professionals in the network</span></div>
+      <div class="stat"><strong>15+</strong><span>Years of partner-led experience</span></div>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section class="section" id="about">
-    <div class="container">
-      <p class="section-kicker">About Viscount Isinga</p>
-      <div class="section-head">
-        <h2>We support clients across Africa and global markets.</h2>
-        <p>Combining deep local insight with international expertise to help businesses strengthen performance, improve decision-making and navigate complexity with confidence.</p>
+    <div class="container split">
+      <div class="about-lead">
+        <p class="kicker">About Viscount Isinga</p>
+        <h2>The measure of the firm.</h2>
+        <p>We support clients across Africa and global markets — combining deep local insight with international expertise to help businesses strengthen performance, improve decision-making and navigate complexity with confidence.</p>
+        <a href="#network" class="link-arrow">Learn more about our story <i class="fa-solid fa-arrow-right"></i></a>
       </div>
+      <div>
+        <p>Our work is grounded in the belief that good advice is clear, practical and defensible. We act as trusted partners, not just service providers — invested in the outcomes our clients are working towards.</p>
+        <p>Every engagement is delivered to international standards, backed by the quality review and specialist depth of a global network.</p>
+      </div>
+    </div>
+    <div class="container">
       <div class="tri">
         <div class="tri-card">
           <h3>Our Vision</h3>
@@ -261,12 +302,13 @@ footer{background:#101922;color:rgba(230,236,243,.8);padding:58px 0 20px}
   </section>
 
   <!-- NETWORK -->
-  <section class="network section" id="network">
-    <div class="container network-grid">
-      <div class="network-copy">
-        <p class="section-kicker">Member Firm — Kenya</p>
-        <h2>Proudly a member firm of SFAI Global.</h2>
-        <p>Santa Fe Associates International is the 17th-largest accounting and consulting network in the world — and 9th in Africa. Membership means every engagement is backed by international standards, independent quality review and specialist expertise our clients can call on in more than 115 countries.</p>
+  <section class="section alt" id="network">
+    <div class="container network-wrap">
+      <div>
+        <p class="kicker">Member Firm — Kenya</p>
+        <h2>Proudly a member firm of <em>SFAI Global.</em></h2>
+        <p>Santa Fe Associates International is the 17th-largest accounting and consulting network in the world — and 9th in Africa. Membership means every Viscount Isinga engagement is backed by international standards, independent quality review and specialist expertise our clients can call on in more than 115 countries.</p>
+        <a href="#contact" class="link-arrow">Talk to the firm <i class="fa-solid fa-arrow-right"></i></a>
       </div>
       <div class="network-stats">
         <div class="ns"><strong>17th</strong><span>Largest worldwide</span></div>
@@ -280,123 +322,135 @@ footer{background:#101922;color:rgba(230,236,243,.8);padding:58px 0 20px}
   <!-- VALUES -->
   <section class="section" id="values">
     <div class="container">
-      <p class="section-kicker">What guides us</p>
-      <div class="section-head"><h2>The principles behind every engagement.</h2></div>
-      <div class="values-grid">
-        <div class="value"><small>01</small><h4>Integrity</h4><p>We act with honesty and professionalism in everything we do.</p></div>
-        <div class="value"><small>02</small><h4>Clarity</h4><p>We provide clear, practical advice without unnecessary complexity.</p></div>
-        <div class="value"><small>03</small><h4>Accountability</h4><p>We take ownership of our work and commitments.</p></div>
-        <div class="value"><small>04</small><h4>Excellence</h4><p>We maintain high standards in service and delivery.</p></div>
-        <div class="value"><small>05</small><h4>Partnership</h4><p>We build long-term relationships grounded in trust.</p></div>
+      <p class="kicker">What guides us</p>
+      <h2>The principles behind every engagement.</h2>
+      <div class="values">
+        <div class="value"><div class="num">01</div><h4>Integrity</h4><p>We act with honesty and professionalism in everything we do.</p></div>
+        <div class="value"><div class="num">02</div><h4>Clarity</h4><p>We provide clear, practical advice without unnecessary complexity.</p></div>
+        <div class="value"><div class="num">03</div><h4>Accountability</h4><p>We take ownership of our work and commitments.</p></div>
+        <div class="value"><div class="num">04</div><h4>Excellence</h4><p>We maintain high standards in service and delivery.</p></div>
+        <div class="value"><div class="num">05</div><h4>Partnership</h4><p>We build long-term relationships grounded in trust.</p></div>
       </div>
     </div>
   </section>
 
   <!-- SERVICES -->
-  <section class="services section" id="services">
+  <section class="section alt" id="services">
     <div class="container">
-      <p class="section-kicker">What we do</p>
-      <div class="section-head">
-        <h2>Audit, tax and consulting expertise.</h2>
-        <p>As an integrated team we combine expertise, insight and a client-focused approach to help organisations move forward with confidence.</p>
+      <div class="services-head">
+        <div>
+          <p class="kicker">What we do</p>
+          <h2>Audit, tax and consulting expertise.</h2>
+        </div>
+        <p>Viscount Isinga Auditors is part of a global network of audit, tax and consulting professionals. As an integrated team we combine expertise, insight and a client-focused approach to help organisations move forward with confidence.</p>
       </div>
-      <div class="services-grid">
-        <div class="service"><small>01</small><h3>Audit &amp; Assurance</h3><p>Independent, rigorous opinions that earn the confidence of lenders, investors, regulators and boards.</p><a href="#contact">Explore →</a></div>
-        <div class="service"><small>02</small><h3>Tax Compliance</h3><p>Every obligation met with precision — accurate, defensible tax positions across all tax heads.</p><a href="#contact">Explore →</a></div>
-        <div class="service"><small>03</small><h3>Accounting &amp; Payroll</h3><p>IFRS-compliant records, management accounts and on-time payroll — every cycle, every deadline.</p><a href="#contact">Explore →</a></div>
-        <div class="service"><small>04</small><h3>Offshore Accounting</h3><p>Qualified offshore accounting talent for firms in the UK, Australia and beyond — at boutique standards.</p><a href="#contact">Explore →</a></div>
-        <div class="service"><small>05</small><h3>CFO &amp; Business Advisory</h3><p>Senior financial leadership on demand — strategy, modelling, governance and investor readiness.</p><a href="#contact">Explore →</a></div>
-        <div class="service"><small>06</small><h3>Company Secretarial</h3><p>Registrations, statutory compliance and governance — companies kept in good standing, always.</p><a href="#contact">Explore →</a></div>
+      <div class="service-grid">
+        <div class="service"><div class="num">01</div><h3>Audit &amp; Assurance</h3><p>Independent, rigorous opinions that earn the confidence of lenders, investors, regulators and boards.</p><a href="#contact">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
+        <div class="service"><div class="num">02</div><h3>Tax Compliance</h3><p>Every obligation met with precision — accurate, defensible tax positions across all tax heads.</p><a href="#contact">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
+        <div class="service"><div class="num">03</div><h3>Accounting &amp; Payroll</h3><p>IFRS-compliant records, management accounts and on-time payroll — every cycle, every deadline.</p><a href="#contact">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
+        <div class="service"><div class="num">04</div><h3>Offshore Accounting</h3><p>Qualified offshore accounting talent for firms in the UK, Australia and beyond — at boutique standards.</p><a href="#contact">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
+        <div class="service"><div class="num">05</div><h3>CFO &amp; Business Advisory</h3><p>Senior financial leadership on demand — strategy, modelling, governance and investor readiness.</p><a href="#contact">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
+        <div class="service"><div class="num">06</div><h3>Company Secretarial</h3><p>Registrations, statutory compliance and governance — companies kept in good standing, always.</p><a href="#contact">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
       </div>
     </div>
   </section>
 
-  <!-- DOWNLOAD -->
-  <section class="download">
-    <div class="container download-inner">
+  <!-- DOWNLOAD BAND -->
+  <section class="band">
+    <div class="container band-inner">
       <div>
         <h2>The full story of the firm and the network behind it.</h2>
         <p>Services, sectors, leadership and international reach — available as a downloadable firm profile.</p>
       </div>
-      <a href="#" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download profile</a>
+      <a href="#" class="btn btn-gold"><i class="fa-solid fa-download"></i> Download profile</a>
     </div>
   </section>
 
   <!-- TRUSTED -->
   <section class="trusted">
     <div class="container">
-      <p>Accredited &amp; affiliated</p>
-      <div class="feature-stack" style="justify-content:center;margin-top:14px;">
-        <span><i class="fa-solid fa-check"></i> Forum of Firms</span>
-        <span><i class="fa-solid fa-check"></i> UN Global Compact</span>
-        <span><i class="fa-solid fa-check"></i> ICPAK</span>
-        <span><i class="fa-solid fa-check"></i> ACCA</span>
-        <span><i class="fa-solid fa-check"></i> CPA Australia</span>
+      <p class="kicker" style="justify-content:center;">Accredited &amp; affiliated</p>
+      <div class="accred-inner">
+        <span><b>Forum of Firms</b></span>
+        <span><b>UN Global Compact</b></span>
+        <span><b>ICPAK</b></span>
+        <span><b>ACCA</b></span>
+        <span><b>CPA Australia</b></span>
       </div>
-      <p style="margin-top:20px;">Trusted by businesses globally. See what our clients say about Viscount Isinga Auditors on Google.</p>
+      <p style="margin-top:32px;">Trusted by businesses globally. See what our clients say about Viscount Isinga Auditors on Google.</p>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section class="contact-band" id="contact">
-    <div class="container contact-inner">
+  <section class="section" id="contact">
+    <div class="container contact-grid">
       <div>
-        <p class="section-kicker">Get in touch</p>
+        <p class="kicker">Get in touch</p>
         <h2>Contact us for more information about our services.</h2>
         <p>Our team typically responds within one business day.</p>
+        <ul class="contact-list">
+          <li><i class="fa-solid fa-location-dot"></i><span>Westlands Rd, Nairobi, Nairobi, 00200, KE</span></li>
+          <li><i class="fa-solid fa-phone"></i><span><a href="tel:+254703899606">+254 703 899 606</a></span></li>
+          <li><i class="fa-solid fa-envelope"></i><span><a href="mailto:info@viscountisinga.com">info@viscountisinga.com</a></span></li>
+        </ul>
       </div>
-      <div>
-        <div class="contact-list">
-          <div><i class="fa-solid fa-location-dot"></i><span>Westlands Rd, Nairobi, Nairobi, 00200, KE</span></div>
-          <div><i class="fa-solid fa-phone"></i><span><a href="tel:+254703899606">+254 703 899 606</a></span></div>
-          <div><i class="fa-solid fa-envelope"></i><span><a href="mailto:info@viscountisinga.com">info@viscountisinga.com</a></span></div>
-        </div>
-        <div style="margin-top:16px;">
-          <a class="btn btn-primary" href="mailto:info@viscountisinga.com">Send an enquiry <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-      </div>
+      <form class="contact-form" onsubmit="event.preventDefault();this.reset();alert('Thank you — request received. Our team typically responds within one business day.');">
+        <div><label for="name">Full name</label><input id="name" type="text" required></div>
+        <div><label for="email">Email</label><input id="email" type="email" required></div>
+        <div><label for="msg">How can we help?</label><textarea id="msg" rows="5" required></textarea></div>
+        <button type="submit" class="btn btn-gold">Send enquiry <i class="fa-solid fa-arrow-right"></i></button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <h2><em>Together</em></h2>
+      <p>Partner-led advice, backed by a global network.</p>
     </div>
   </section>
 
 </main>
 
+<!-- FOOTER -->
 <footer>
   <div class="container footer-grid">
-    <div>
-      <div class="brand-foot">
-        <span class="brand-mark"><i class="fa-solid fa-scale-balanced"></i></span>
-        <span class="brand-copy"><strong>VISCOUNT ISINGA</strong><span class="brand-sub">AUDIT · TAX · ADVISORY</span></span>
+    <div class="footer-brand">
+      <div class="logo">
+        <span class="logo-mark"><i class="fa-solid fa-scale-balanced"></i></span>
+        <span class="logo-text">
+          <strong>Viscount Isinga</strong>
+          <span>Auditors · Westlands, Nairobi</span>
+        </span>
       </div>
-      <div class="footer-address">
-        <span>Westlands Rd, Nairobi</span>
-        <span>Nairobi, 00200, KE</span>
-        <span>Phone: +254 703 899 606</span>
-        <span>Email: info@viscountisinga.com</span>
-      </div>
+      <p>Audit, tax and advisory for organisations across Kenya and global markets. SFAI Global member firm.</p>
     </div>
-    <div class="footer-block">
+    <div class="footer-col">
       <h4>Services</h4>
-      <div class="footer-links">
-        <a href="#services">Audit &amp; Assurance</a>
-        <a href="#services">Tax Compliance</a>
-        <a href="#services">Accounting &amp; Payroll</a>
-        <a href="#services">Offshore Accounting</a>
-        <a href="#services">CFO &amp; Advisory</a>
-        <a href="#services">Company Secretarial</a>
-      </div>
+      <a href="#services">Audit &amp; Assurance</a>
+      <a href="#services">Tax Compliance</a>
+      <a href="#services">Accounting &amp; Payroll</a>
+      <a href="#services">CFO &amp; Advisory</a>
     </div>
-    <div class="footer-block">
-      <h4>Support</h4>
-      <div class="footer-links">
-        <a href="#contact">Request a quote</a>
-        <a href="tel:+254703899606">Call the firm</a>
-        <a href="mailto:info@viscountisinga.com">Email us</a>
-      </div>
+    <div class="footer-col">
+      <h4>Firm</h4>
+      <a href="#about">About</a>
+      <a href="#network">Network</a>
+      <a href="#values">Values</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <span>Westlands Rd, Nairobi</span>
+      <span>Nairobi, 00200, KE</span>
+      <a href="tel:+254703899606">+254 703 899 606</a>
+      <a href="mailto:info@viscountisinga.com">info@viscountisinga.com</a>
     </div>
   </div>
   <div class="container legal">
     <span>© 2026 Viscount Isinga Auditors</span>
-    <span>Audit · Tax · Advisory · Westlands, Nairobi · SFAI Global Member</span>
+    <span>SFAI Global Member · Westlands, Nairobi</span>
   </div>
 </footer>
 
