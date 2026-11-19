@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TitanCore Computer and Hardware Systems provides enterprise GPU servers, AI training platforms, workstations, and data center infrastructure for high-performance computing workloads.">
-    <title>TitanCore Computer and Hardware Systems | Supermicro GPU Servers</title>
+    <meta name="description" content="Viscount Isinga Auditors — audit, tax, advisory, CFO and business support for organisations across Kenya and global markets. Westlands, Nairobi.">
+    <title>Viscount Isinga Auditors | Audit, Tax, Advisory — Nairobi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -606,38 +606,36 @@
         <div class="utility-bar">
             <div class="container utility-inner">
                 <div class="utility-links">
-                    <a href="{{ url_for('index') }}">Return to TitanCore homepage</a>
+                    <a href="#">Viscount Isinga Auditors — Home</a>
                 </div>
                 <div class="utility-links">
-                    <a href="{{ url_for('contact') }}">Log In</a>
-                    <a class="top-call" href="tel:+19037873060">Buy online or call +1 (903) 787-3060</a>
+                    <a href="#">Log In</a>
+                    <a class="top-call" href="tel:+254703899606">Call +254 703 899 606</a>
                 </div>
             </div>
         </div>
         <div class="main-header">
             <div class="container nav-row">
-                <a href="{{ url_for('index') }}" class="brand" aria-label="TitanCore home">
-                    <span class="brand-mark"><i class="fa-solid fa-microchip" aria-hidden="true"></i></span>
+                <a href="#" class="brand" aria-label="Viscount Isinga Auditors home">
+                    <span class="brand-mark"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></span>
                     <span class="brand-copy">
-                        <strong>TITANCORE</strong>
-                        <span class="brand-sub">COMPUTER AND HARDWARE SYSTEMS</span>
+                        <strong>VISCOUNT ISINGA</strong>
+                        <span class="brand-sub">AUDITORS · ADVISORY · TAX</span>
                     </span>
                 </a>
                 <nav class="primary-nav" aria-label="Main navigation">
-                    <a href="#about">Systems</a>
-                    <a href="#systems">Storage</a>
-                    <a href="#contact">Workstation</a>
-                    <a href="#contact">Hardware Solutions</a>
-                    <a href="#contact">Services</a>
-                    <a href="#contact">Support</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#network">Network</a>
+                    <a href="#values">Values</a>
+                    <a href="#contact">Contact</a>
                 </nav>
                 <div class="header-actions">
-                    <a href="{{ url_for('cart') }}" class="header-cart" aria-label="View cart">
-                        <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-                        <span>Cart</span>
-                        {% if cart_count %}<span class="cart-badge">{{ cart_count }}</span>{% endif %}
+                    <a href="#" class="header-cart" aria-label="Client portal">
+                        <i class="fa-solid fa-user" aria-hidden="true"></i>
+                        <span>Portal</span>
                     </a>
-                    <a href="{{ url_for('contact') }}" class="header-cta">Request a quote</a>
+                    <a href="#contact" class="header-cta">Request a quote</a>
                 </div>
             </div>
         </div>
@@ -647,143 +645,172 @@
         <section class="hero" id="about">
             <div class="container hero-inner">
                 <div>
-                    <div class="crumbs">Home › Systems › Supermicro › SuperServer › GPU</div>
-                    <h1>Supermicro GPU Servers</h1>
-                    <p class="lead">Enterprise-class GPU servers for AI &amp; Machine Learning. TitanCore Computer and Hardware Systems is a Texas-based company delivering GPU-accelerated compute platforms built for demanding workloads, optimized for throughput, precision, and reliability.</p>
+                    <div class="crumbs">Home › About › Viscount Isinga Auditors</div>
+                    <h1>Audit · Tax · Advisory</h1>
+                    <p class="lead">Your trusted partner in local and international business — audit, tax, advisory, CFO and business support for organisations across Kenya and global markets. SFAI Global Member Firm.</p>
                     <div class="cta-row">
-                        <a href="{{ url_for('contact') }}" class="btn btn-primary">Configure &amp; Buy</a>
-                        <a href="tel:+19037873060" class="btn btn-secondary">Call Now</a>
+                        <a href="#contact" class="btn btn-primary">Get in touch</a>
+                        <a href="tel:+254703899606" class="btn btn-secondary">Call now</a>
                     </div>
                     <div class="feature-stack">
-                        <span><i class="fa-solid fa-check"></i> AI-ready builds</span>
-                        <span><i class="fa-solid fa-check"></i> NVIDIA GPU support</span>
-                        <span><i class="fa-solid fa-check"></i> Enterprise support</span>
+                        <span><i class="fa-solid fa-check"></i> SFAI Global Member</span>
+                        <span><i class="fa-solid fa-check"></i> ICPAK Accredited</span>
+                        <span><i class="fa-solid fa-check"></i> Forum of Firms</span>
                     </div>
                 </div>
 
-                <div class="feature-card" aria-label="TitanCore GPU server architecture preview">
+                <div class="feature-card" aria-label="Viscount Isinga Auditors firm overview">
                     <div class="card-topbar">
                         <div class="window-dots"><span></span><span></span><span></span></div>
-                        <span class="card-tag">GPU-Node-01</span>
+                        <span class="card-tag">Firm Profile — Nairobi</span>
                     </div>
                     <div class="card-body">
-                        <div><span class="key">server</span> = <span class="value">"Supermicro GPU Platform"</span></div>
-                        <div><span class="key">cpu</span> = <span class="value">"Intel Xeon / AMD EPYC"</span></div>
-                        <div><span class="key">gpu</span> = <span class="value">"NVIDIA RTX / A100 / H100 class"</span></div>
-                        <div><span class="key">memory</span> = <span class="value">"Up to 6 TB DDR5"</span></div>
-                        <div><span class="key">storage</span> = <span class="value">"NVMe / SATA / SAS"</span></div>
-                        <div><span class="key">focus</span> = <span class="value">"AI training, HPC, inference"</span></div>
+                        <div><span class="key">firm</span> = <span class="value">"Viscount Isinga Auditors"</span></div>
+                        <div><span class="key">location</span> = <span class="value">"Westlands, Nairobi, 00200, KE"</span></div>
+                        <div><span class="key">network</span> = <span class="value">"SFAI Global Member"</span></div>
+                        <div><span class="key">services</span> = <span class="value">"Audit · Tax · Advisory · CFO"</span></div>
+                        <div><span class="key">reach</span> = <span class="value">"115+ countries via SFAI network"</span></div>
+                        <div><span class="key">focus</span> = <span class="value">"Clarity, confidence, lasting impact"</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="specs" id="systems">
+        <section class="specs" id="services">
             <div class="container spec-grid">
                 <div class="info-panel">
-                    <h3>Key Specifications</h3>
+                    <h3>What we do</h3>
                     <ul class="bullet-list">
-                        {% for item in specifications %}
-                        <li>{{ item }}</li>
-                        {% endfor %}
+                        <li>Audit & Assurance — independent, rigorous opinions that earn confidence.</li>
+                        <li>Tax Compliance — accurate, defensible tax positions across all tax heads.</li>
+                        <li>Accounting & Payroll — IFRS-compliant records, management accounts, on-time payroll.</li>
+                        <li>Offshore Accounting — qualified offshore talent for firms in the UK, Australia and beyond.</li>
+                        <li>CFO & Business Advisory — senior financial leadership on demand.</li>
+                        <li>Company Secretarial — registrations, statutory compliance and governance.</li>
                     </ul>
                 </div>
-                <div class="info-panel">
-                    <h3>Ideal Use Cases</h3>
+                <div class="info-panel" id="values">
+                    <h3>What guides us</h3>
                     <ul class="bullet-list">
-                        {% for item in use_cases %}
-                        <li>{{ item }}</li>
-                        {% endfor %}
+                        <li><strong>Integrity</strong> — We act with honesty and professionalism in everything we do.</li>
+                        <li><strong>Clarity</strong> — We provide clear, practical advice without unnecessary complexity.</li>
+                        <li><strong>Accountability</strong> — We take ownership of our work and commitments.</li>
+                        <li><strong>Excellence</strong> — We maintain high standards in service and delivery.</li>
+                        <li><strong>Partnership</strong> — We build long-term relationships grounded in trust.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section class="products" id="contact">
+        <section class="products" id="network">
             <div class="container">
-                <p class="section-kicker">Configure &amp; Buy</p>
+                <p class="section-kicker">The network behind the firm</p>
                 <div class="section-head">
-                    <h2>GPU server platforms for enterprise AI.</h2>
+                    <h2>Proudly a member firm of SFAI Global.</h2>
                 </div>
                 <div class="product-grid">
-                    {% for product in products %}
                     <article class="product-card">
                         <div class="product-top">
-                            <span class="model-badge">{{ loop.index }}</span>
-                            <span class="variant-tag">GPU-Optimized</span>
+                            <span class="model-badge">01</span>
+                            <span class="variant-tag">Global Reach</span>
                         </div>
                         <div class="product-body">
                             <div class="product-head">
-                                <h3>{{ product.name }}</h3>
+                                <h3>SFAI Global</h3>
                             </div>
-                            <div class="supports">{{ product.supports }}</div>
+                            <div class="supports">Santa Fe Associates International</div>
                             <div class="attribute-list">
-                                <div class="attribute-row"><span>CPU</span><strong>{{ product.cpu }}</strong></div>
-                                <div class="attribute-row"><span>GPU</span><strong>{{ product.gpu }}</strong></div>
-                                <div class="attribute-row"><span>Memory</span><strong>{{ product.memory }}</strong></div>
-                                <div class="attribute-row"><span>Storage</span><strong>{{ product.storage }}</strong></div>
-                                <div class="attribute-row"><span>Networking</span><strong>{{ product.networking }}</strong></div>
+                                <div class="attribute-row"><span>Ranking</span><strong>17th largest worldwide</strong></div>
+                                <div class="attribute-row"><span>Africa</span><strong>9th ranked in Africa</strong></div>
+                                <div class="attribute-row"><span>Countries</span><strong>115+ countries covered</strong></div>
+                                <div class="attribute-row"><span>Professionals</span><strong>14,000+ across the network</strong></div>
+                                <div class="attribute-row"><span>Quality</span><strong>Independent quality review</strong></div>
                             </div>
                             <div class="product-footer">
                                 <div class="price-wrap">
-                                    <small>Starting Price</small>
-                                    <strong>${{ product.price }}</strong>
+                                    <small>Member Firm — Kenya</small>
+                                    <strong>Nairobi</strong>
                                 </div>
                                 <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-                                    <form action="{{ url_for('add_to_cart', product_id=product.id) }}" method="post" class="product-action">
-                                        <button type="submit" class="configure-btn"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Add to cart</button>
-                                    </form>
-                                    <a class="secondary-action" href="{{ url_for('contact') }}">Configure</a>
+                                    <a class="secondary-action" href="#contact">Explore network</a>
                                 </div>
                             </div>
                         </div>
                     </article>
-                    {% endfor %}
+
+                    <article class="product-card">
+                        <div class="product-top">
+                            <span class="model-badge">02</span>
+                            <span class="variant-tag">The measure of the firm</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-head">
+                                <h3>Global credentials</h3>
+                            </div>
+                            <div class="supports">Accredited & affiliated</div>
+                            <div class="attribute-list">
+                                <div class="attribute-row"><span>Offices</span><strong>Nairobi (Westlands)</strong></div>
+                                <div class="attribute-row"><span>Network</span><strong>115+ countries</strong></div>
+                                <div class="attribute-row"><span>Professionals</span><strong>14,000+</strong></div>
+                                <div class="attribute-row"><span>Experience</span><strong>15+ years of partner-led experience</strong></div>
+                                <div class="attribute-row"><span>Memberships</span><strong>ICPAK · ACCA · CPA Australia · Forum of Firms</strong></div>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-wrap">
+                                    <small>Ready to talk?</small>
+                                    <strong>Get in touch</strong>
+                                </div>
+                                <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                                    <a class="configure-btn" href="#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer id="contact">
         <div class="container footer-grid">
             <div>
                 <div class="brand-foot">
-                    <span class="brand-mark"><i class="fa-solid fa-microchip" aria-hidden="true"></i></span>
+                    <span class="brand-mark"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></span>
                     <span class="brand-copy">
-                        <strong>TITANCORE</strong>
-                        <span class="brand-sub">COMPUTER AND HARDWARE SYSTEMS</span>
+                        <strong>VISCOUNT ISINGA</strong>
+                        <span class="brand-sub">AUDITORS · ADVISORY · TAX</span>
                     </span>
                 </div>
                 <div class="footer-address">
-                    <span>625 Wood St Apt 3B</span>
-                    <span>Kemp, TX 75143</span>
-                    <span>Phone: +1 (903) 787-3060</span>
-                    <span>Email: sales@titancoresystems.com</span>
+                    <span>Westlands Rd, Nairobi</span>
+                    <span>Nairobi, 00200, KE</span>
+                    <span>Phone: +254 703 899 606</span>
+                    <span>Email: info@viscountisinga.com</span>
                 </div>
             </div>
             <div class="footer-block">
-                <h4>Systems</h4>
+                <h4>Services</h4>
                 <div class="footer-links">
-                    <a href="#">GPU Servers</a>
-                    <a href="#">AI Training</a>
-                    <a href="#">Workstations</a>
-                    <a href="#">Data Centers</a>
+                    <a href="#services">Audit & Assurance</a>
+                    <a href="#services">Tax Compliance</a>
+                    <a href="#services">Accounting & Payroll</a>
+                    <a href="#services">CFO & Advisory</a>
+                    <a href="#services">Company Secretarial</a>
                 </div>
             </div>
             <div class="footer-block">
                 <h4>Support</h4>
                 <div class="footer-links">
-                    <a href="{{ url_for('contact') }}">Request a quote</a>
-                    <a href="tel:+19037873060">Call sales</a>
-                    <a href="mailto:sales@titancoresystems.com">Email us</a>
+                    <a href="#contact">Request a quote</a>
+                    <a href="tel:+254703899606">Call the firm</a>
+                    <a href="mailto:info@viscountisinga.com">Email us</a>
                 </div>
             </div>
         </div>
         <div class="container legal">
-            <span>© 2026 TitanCore Computer and Hardware Systems</span>
-            <span>High-performance computing • AI infrastructure • GPU systems</span>
+            <span>© 2026 Viscount Isinga Auditors</span>
+            <span>Audit · Tax · Advisory · Westlands, Nairobi</span>
         </div>
     </footer>
 </body>
 </html>
-
